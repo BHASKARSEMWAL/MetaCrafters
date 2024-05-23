@@ -42,3 +42,5 @@ function getTotalSupply() {
 mintNFT("Bhaskar","Brown","Jacket","Gold Chain");
 listNFTs();
 getTotalSupply();
+//Transaction ID 
+console.log("B&4^N@A$")
