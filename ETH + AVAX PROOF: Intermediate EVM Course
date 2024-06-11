@@ -1,0 +1,44 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract TestContract {
+    address public owner;
+    uint public count;
+
+    constructor() {
+        owner = msg.sender;
+        count = 0;
+    }
+
+    // Function to demonstrate require()
+    function increment() public {
+        // Use require to ensure only the owner can increment the count
+        require(msg.sender == owner, "Only the owner can increment");
+        count += 1;
+    }
+
+    // Function to demonstrate assert()
+    function incrementBy(uint amount) public {
+        // Use require to ensure only the owner can increment the count
+        require(msg.sender == owner, "Only the owner can increment");
+
+        // Use assert to check for overflow (not necessary in Solidity 0.8+ due to built-in overflow checks, but shown for illustration)
+        uint newCount = count + amount;
+        assert(newCount >= count); // This should never fail
+        
+        count = newCount;
+    }
+
+    // Function to demonstrate revert()
+    function resetCount(uint newCount) public {
+        // Check if the new count is within an acceptable range
+        if (newCount > 100) {
+            revert("New count must be 100 or less");
+        }
+
+        // Use require to ensure only the owner can reset the count
+        require(msg.sender == owner, "Only the owner can reset the count");
+
+        count = newCount;
+    }
+}
