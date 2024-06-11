@@ -39,7 +39,7 @@ contract TestContract {
         // Use require to ensure only the owner can increment the count
         require(msg.sender == owner, "Only the owner can increment");
 
-        // Use assert to check for overflow (not necessary in Solidity 0.8+ due to built-in overflow checks, but shown for illustration)
+        // Use assert to check for overflow 
         uint newCount = count + amount;
         assert(newCount >= count); // This should never fail
         
