@@ -45,7 +45,7 @@ To compile the code, click on the "Solidity Compiler" tab in the left-hand sideb
 
 Once the code is compiled, you can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. Select the "Elections" contract from the dropdown menu, and then click on the "Deploy" button.
 
-Once the contract is deployed, you can interact with it by calling the Check & isEligible functions. Click on the "Elections" contract in the left-hand sidebar, and then click on the "Check" and "isEligible" functions. Finally, click on the "transact" button to execute the function and retrieve the "Eligible" or "Not Eligible" message.
+Once the contract is deployed, you can interact with it by calling the Checking & isEligible functions. Click on the "Elections" contract in the left-hand sidebar, and then click on the "Checking" and "isEligible" functions. Finally, click on the "transact" button to execute the function and retrieve the "Eligible" or "Not Eligible" message.
 
 ## Authors
 
