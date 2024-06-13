@@ -1,44 +1,23 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.26;
 
-contract TestContract {
-    address public owner;
-    uint public count;
+contract Elections{
 
-    constructor() {
-        owner = msg.sender;
-        count = 0;
+    function isEligible(uint age) public  pure  returns(string memory){
+        require(age>=18,"Candidate is NOT eligible for Voting this year");
+        return "Eligible for Voting";
     }
 
-    // Function to demonstrate require()
-    function increment() public {
-        // Use require to ensure only the owner can increment the count
-        require(msg.sender == owner, "Only the owner can increment");
-        count += 1;
-    }
+    function checking(uint age)public pure returns(string memory){
+        bool result;
+        assert(age>=18);
+        result=true;
 
-    // Function to demonstrate assert()
-    function incrementBy(uint amount) public {
-        // Use require to ensure only the owner can increment the count
-        require(msg.sender == owner, "Only the owner can increment");
-
-        // Use assert to check for overflow 
-        uint newCount = count + amount;
-        assert(newCount >= count); // This should never fail
-        
-        count = newCount;
-    }
-
-    // Function to demonstrate revert()
-    function resetCount(uint newCount) public {
-        // Check if the new count is within an acceptable range
-        if (newCount > 100) {
-            revert("New count must be 100 or less");
+        if(result==true){
+            return "YES";
         }
-
-        // Use require to ensure only the owner can reset the count
-        require(msg.sender == owner, "Only the owner can reset the count");
-
-        count = newCount;
+        revert("NOT ELIGIBLE");
     }
+
 }
+
