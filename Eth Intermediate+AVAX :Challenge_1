@@ -1,0 +1,33 @@
+//SPDX-License-Identifier:MIT
+
+Challenge Question:-> Write a smart contract that allows only the admin to access and call all the functions of the contract.
+
+
+pragma solidity >=0.8.26;
+
+contract Challenge{
+
+    address public owner;
+    uint256 public x;
+    uint256 public y;
+
+    constructor(){
+        owner=msg.sender;
+    }
+
+    modifier Ethereum{
+        require(msg.sender==owner,"Only Owner can acces!");
+        _;
+    }
+
+    function operations(uint _x,uint _y) public Ethereum returns(string memory){
+        x=_x;
+        y=_y;
+        if(x>y){
+            return "x is greater than y";
+        }
+        else{
+            return "y is greater than x";
+        }
+    }
+}
